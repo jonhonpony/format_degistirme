@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Pdf_to_word";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>word to pdf</h2>
+<br />
+<div class="btn">
+    @using (Html.BeginForm("word_to_pdf", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="file" id="wordFile"/>
+        <button type="submit">Convert to pdf</button>
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#convertButton").click(function () {
+            var formData = new FormData();
+            var fileInput = document.getElementById("wordFile");
+            formData.append("file", fileInput.files[0]);
+
+            $.ajax({
+                url: "/Home/Convert",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    var downloadLink = document.createElement("a");
+                    downloadLink.href = URL.createObjectURL(result);
+                    downloadLink.download = "convertedFile.pdf";
+                    downloadLink.click();
+                }
+            });
+        });
+
+
+</script>
+
+
+

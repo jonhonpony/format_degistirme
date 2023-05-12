@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "pdf_to_png";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>pdf_to_png</h2>
+
+<br />
+<div class="btn">
+    @using (Html.BeginForm("pdf_to_png", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="file" id="pdfFile" />
+        <button type="submit">Convert to png</button>
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#convertButton").click(function () {
+            var formData = new FormData();
+            var fileInput = document.getElementById("pdfFile");
+            formData.append("file", fileInput.files[0]);
+            $.ajax({
+                url: "/Home/Convert",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    var downloadLink = document.createElement("a");
+                    downloadLink.href = URL.createObjectURL(result);
+                    downloadLink.download = "convertedFile.png";
+                    downloadLink.click();
+                }
+            });
+        });
+    });

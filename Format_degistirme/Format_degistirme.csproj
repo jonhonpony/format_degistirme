@@ -1,0 +1,606 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.v8-xfa.props" Condition="Exists('..\packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.v8-xfa.props')" />
+  <Import Project="..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props" Condition="Exists('..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C05238C1-B220-4825-8633-AB931CB9D4C6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Format_degistirme</RootNamespace>
+    <AssemblyName>Format_degistirme</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44391</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BootstrapMvc.Core, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BootstrapMvc.Core.2.3.0\lib\net451\BootstrapMvc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HarfBuzzSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\HarfBuzzSharp.2.8.2.2\lib\net462\HarfBuzzSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Scaffolding.12.0, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.AspNet.Scaffolding.EntityFramework.12.0, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PdfiumViewer, Version=2.13.0.0, Culture=neutral, PublicKeyToken=91e4789cfb0609e0, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfiumViewer.2.13.0.0\lib\net20\PdfiumViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.2.88.2\lib\net462\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.HarfBuzz, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaSharp.HarfBuzz.2.88.2\lib\net462\SkiaSharp.HarfBuzz.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Base, Version=21.1450.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocToPdfConverter.AspNet.Mvc5.21.1.41\lib\net45\Syncfusion.Compression.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Compression.Portable, Version=21.1.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Compression.Net.Core.21.1.41\lib\netstandard2.0\Syncfusion.Compression.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Base, Version=21.1450.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocIO.AspNet.Mvc5.21.1.41\lib\net45\Syncfusion.DocIO.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIO.Portable, Version=21.1.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocIO.Net.Core.21.1.41\lib\netstandard2.0\Syncfusion.DocIO.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocIORenderer.Portable, Version=21.1.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocIORenderer.Net.Core.21.1.41\lib\netstandard2.0\Syncfusion.DocIORenderer.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DocToPdfConverter.Base, Version=21.1450.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocToPdfConverter.AspNet.Mvc5.21.1.41\lib\net45\Syncfusion.DocToPdfConverter.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=21.1450.41.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocToPdfConverter.AspNet.Mvc5.21.1.41\lib\net45\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Base, Version=21.1450.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.DocToPdfConverter.AspNet.Mvc5.21.1.41\lib\net45\Syncfusion.OfficeChart.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.OfficeChart.Portable, Version=21.1.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.OfficeChart.Net.Core.21.1.41\lib\netstandard2.0\Syncfusion.OfficeChart.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Base, Version=21.1450.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.AspNet.Mvc5.21.1.41\lib\net45\Syncfusion.Pdf.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Imaging.Portable, Version=21.1.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.Imaging.Net.Core.21.1.41\lib\netstandard2.0\Syncfusion.Pdf.Imaging.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Pdf.Portable, Version=21.1.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Pdf.Net.Core.21.1.41\lib\netstandard2.0\Syncfusion.Pdf.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SkiaSharpHelper.Portable, Version=21.1.41.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SkiaSharpHelper.Net.Core.21.1.41\lib\netstandard2.0\Syncfusion.SkiaSharpHelper.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.4.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Xceed.Document.NET, Version=2.4.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.2.4.0\lib\net40\Xceed.Document.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Words.NET, Version=2.4.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.2.4.0\lib\net40\Xceed.Words.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="contents\js\dist\alert.js" />
+    <Content Include="contents\js\dist\base-component.js" />
+    <Content Include="contents\js\dist\button.js" />
+    <Content Include="contents\js\dist\carousel.js" />
+    <Content Include="contents\js\dist\collapse.js" />
+    <Content Include="contents\js\dist\dom\data.js" />
+    <Content Include="contents\js\dist\dom\event-handler.js" />
+    <Content Include="contents\js\dist\dom\manipulator.js" />
+    <Content Include="contents\js\dist\dom\selector-engine.js" />
+    <Content Include="contents\js\dist\dropdown.js" />
+    <Content Include="contents\js\dist\modal.js" />
+    <Content Include="contents\js\dist\offcanvas.js" />
+    <Content Include="contents\js\dist\popover.js" />
+    <Content Include="contents\js\dist\scrollspy.js" />
+    <Content Include="contents\js\dist\tab.js" />
+    <Content Include="contents\js\dist\toast.js" />
+    <Content Include="contents\js\dist\tooltip.js" />
+    <Content Include="contents\js\index.esm.js" />
+    <Content Include="contents\js\index.umd.js" />
+    <Content Include="contents\js\src\alert.js" />
+    <Content Include="contents\js\src\base-component.js" />
+    <Content Include="contents\js\src\button.js" />
+    <Content Include="contents\js\src\carousel.js" />
+    <Content Include="contents\js\src\collapse.js" />
+    <Content Include="contents\js\src\dom\data.js" />
+    <Content Include="contents\js\src\dom\event-handler.js" />
+    <Content Include="contents\js\src\dom\manipulator.js" />
+    <Content Include="contents\js\src\dom\selector-engine.js" />
+    <Content Include="contents\js\src\dropdown.js" />
+    <Content Include="contents\js\src\modal.js" />
+    <Content Include="contents\js\src\offcanvas.js" />
+    <Content Include="contents\js\src\popover.js" />
+    <Content Include="contents\js\src\scrollspy.js" />
+    <Content Include="contents\js\src\tab.js" />
+    <Content Include="contents\js\src\toast.js" />
+    <Content Include="contents\js\src\tooltip.js" />
+    <Content Include="contents\js\src\util\backdrop.js" />
+    <Content Include="contents\js\src\util\index.js" />
+    <Content Include="contents\js\src\util\sanitizer.js" />
+    <Content Include="contents\js\src\util\scrollbar.js" />
+    <Content Include="contents\js\tests\browsers.js" />
+    <Content Include="contents\js\tests\helpers\fixture.js" />
+    <Content Include="contents\js\tests\integration\bundle-modularity.js" />
+    <Content Include="contents\js\tests\integration\bundle.js" />
+    <Content Include="contents\js\tests\integration\index.html" />
+    <Content Include="contents\js\tests\integration\rollup.bundle-modularity.js" />
+    <Content Include="contents\js\tests\integration\rollup.bundle.js" />
+    <Content Include="contents\js\tests\karma.conf.js" />
+    <Content Include="contents\js\tests\unit\alert.spec.js" />
+    <Content Include="contents\js\tests\unit\base-component.spec.js" />
+    <Content Include="contents\js\tests\unit\button.spec.js" />
+    <Content Include="contents\js\tests\unit\carousel.spec.js" />
+    <Content Include="contents\js\tests\unit\collapse.spec.js" />
+    <Content Include="contents\js\tests\unit\dom\data.spec.js" />
+    <Content Include="contents\js\tests\unit\dom\event-handler.spec.js" />
+    <Content Include="contents\js\tests\unit\dom\manipulator.spec.js" />
+    <Content Include="contents\js\tests\unit\dom\selector-engine.spec.js" />
+    <Content Include="contents\js\tests\unit\dropdown.spec.js" />
+    <Content Include="contents\js\tests\unit\jquery.spec.js" />
+    <Content Include="contents\js\tests\unit\modal.spec.js" />
+    <Content Include="contents\js\tests\unit\offcanvas.spec.js" />
+    <Content Include="contents\js\tests\unit\popover.spec.js" />
+    <Content Include="contents\js\tests\unit\scrollspy.spec.js" />
+    <Content Include="contents\js\tests\unit\tab.spec.js" />
+    <Content Include="contents\js\tests\unit\toast.spec.js" />
+    <Content Include="contents\js\tests\unit\tooltip.spec.js" />
+    <Content Include="contents\js\tests\unit\util\backdrop.spec.js" />
+    <Content Include="contents\js\tests\unit\util\index.spec.js" />
+    <Content Include="contents\js\tests\unit\util\sanitizer.spec.js" />
+    <Content Include="contents\js\tests\unit\util\scrollbar.spec.js" />
+    <Content Include="contents\js\tests\visual\alert.html" />
+    <Content Include="contents\js\tests\visual\button.html" />
+    <Content Include="contents\js\tests\visual\carousel.html" />
+    <Content Include="contents\js\tests\visual\collapse.html" />
+    <Content Include="contents\js\tests\visual\dropdown.html" />
+    <Content Include="contents\js\tests\visual\modal.html" />
+    <Content Include="contents\js\tests\visual\popover.html" />
+    <Content Include="contents\js\tests\visual\scrollspy.html" />
+    <Content Include="contents\js\tests\visual\tab.html" />
+    <Content Include="contents\js\tests\visual\toast.html" />
+    <Content Include="contents\js\tests\visual\tooltip.html" />
+    <Content Include="contents\pricing.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-icons.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="REsim\Ekran Alıntısı.PNG" />
+    <Content Include="REsim\pdftojpg.PNG" />
+    <Content Include="REsim\word_to_pdf.PNG" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="contents\js\dist\alert.js.map" />
+    <Content Include="contents\js\dist\base-component.js.map" />
+    <Content Include="contents\js\dist\button.js.map" />
+    <Content Include="contents\js\dist\carousel.js.map" />
+    <Content Include="contents\js\dist\collapse.js.map" />
+    <Content Include="contents\js\dist\dom\data.js.map" />
+    <Content Include="contents\js\dist\dom\event-handler.js.map" />
+    <Content Include="contents\js\dist\dom\manipulator.js.map" />
+    <Content Include="contents\js\dist\dom\selector-engine.js.map" />
+    <Content Include="contents\js\dist\dropdown.js.map" />
+    <Content Include="contents\js\dist\modal.js.map" />
+    <Content Include="contents\js\dist\offcanvas.js.map" />
+    <Content Include="contents\js\dist\popover.js.map" />
+    <Content Include="contents\js\dist\scrollspy.js.map" />
+    <Content Include="contents\js\dist\tab.js.map" />
+    <Content Include="contents\js\dist\toast.js.map" />
+    <Content Include="contents\js\dist\tooltip.js.map" />
+    <Content Include="contents\js\tests\README.md" />
+    <Content Include="contents\js\tests\unit\.eslintrc.json" />
+    <None Include="Scripts\jquery-3.6.4.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.4.js" />
+    <Content Include="Scripts\jquery-3.6.4.min.js" />
+    <Content Include="Scripts\jquery-3.6.4.slim.js" />
+    <Content Include="Scripts\jquery-3.6.4.slim.min.js" />
+    <Content Include="template\css\aos.css" />
+    <Content Include="template\css\bootstrap-grid.css" />
+    <Content Include="template\css\bootstrap-reboot.css" />
+    <Content Include="template\css\bootstrap-utilities.css" />
+    <Content Include="template\css\bootstrap.css" />
+    <Content Include="template\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="template\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="template\css\bootstrap\bootstrap-utilities.css" />
+    <Content Include="template\css\bootstrap\index.html" />
+    <Content Include="template\css\components\_site-blocks.css" />
+    <Content Include="template\css\flatpickr.min.css" />
+    <Content Include="template\css\glightbox.min.css" />
+    <Content Include="template\css\index.html" />
+    <Content Include="template\css\style.css" />
+    <Content Include="template\css\tiny-slider.css" />
+    <Content Include="template\fonts\flaticon\backup.txt" />
+    <Content Include="template\fonts\flaticon\font\flaticon.css" />
+    <Content Include="template\fonts\flaticon\font\flaticon.html" />
+    <Content Include="template\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="template\fonts\flaticon\font\_flaticon.css" />
+    <Content Include="template\fonts\flaticon\index.html" />
+    <Content Include="template\fonts\icomoon\demo-files\demo.css" />
+    <Content Include="template\fonts\icomoon\demo-files\demo.js" />
+    <Content Include="template\fonts\icomoon\demo.html" />
+    <Content Include="template\fonts\icomoon\fonts\icomoon.svg" />
+    <Content Include="template\fonts\icomoon\index.html" />
+    <Content Include="template\fonts\icomoon\Read Me.txt" />
+    <Content Include="template\fonts\icomoon\style.css" />
+    <Content Include="template\fonts\index.html" />
+    <Content Include="template\images\blob.svg" />
+    <Content Include="template\images\dots.png" />
+    <Content Include="template\images\hero_1.jpg" />
+    <Content Include="template\images\hero_2.jpg" />
+    <Content Include="template\images\hero_3.jpg" />
+    <Content Include="template\images\hero_4.jpg" />
+    <Content Include="template\images\hero_5.jpg" />
+    <Content Include="template\images\hero_6-1.jpg" />
+    <Content Include="template\images\hero_6.jpg" />
+    <Content Include="template\images\img_1_horizontal.jpg" />
+    <Content Include="template\images\img_1_sq.jpg" />
+    <Content Include="template\images\img_1_vertical.jpg" />
+    <Content Include="template\images\img_2_horizontal.jpg" />
+    <Content Include="template\images\img_2_sq.jpg" />
+    <Content Include="template\images\img_2_vertical.jpg" />
+    <Content Include="template\images\img_3_horizontal.jpg" />
+    <Content Include="template\images\img_3_sq.jpg" />
+    <Content Include="template\images\img_3_vertical.jpg" />
+    <Content Include="template\images\img_4_horizontal.jpg" />
+    <Content Include="template\images\img_4_sq.jpg" />
+    <Content Include="template\images\img_4_vertical.jpg" />
+    <Content Include="template\images\img_5_horizontal.jpg" />
+    <Content Include="template\images\img_5_sq.jpg" />
+    <Content Include="template\images\img_5_vertical.jpg" />
+    <Content Include="template\images\img_6_horizontal.jpg" />
+    <Content Include="template\images\img_6_sq.jpg" />
+    <Content Include="template\images\img_6_vertical.jpg" />
+    <Content Include="template\images\img_7_horizontal.jpg" />
+    <Content Include="template\images\img_7_sq.jpg" />
+    <Content Include="template\images\img_7_vertical.jpg" />
+    <Content Include="template\images\index.html" />
+    <Content Include="template\images\person_1.jpg" />
+    <Content Include="template\images\person_2.jpg" />
+    <Content Include="template\images\person_3.jpg" />
+    <Content Include="template\images\person_4.jpg" />
+    <Content Include="template\images\person_5.jpg" />
+    <Content Include="template\images\world-dotted-map.png" />
+    <Content Include="template\js\aos.js" />
+    <Content Include="template\js\bootstrap.bundle.min.js" />
+    <Content Include="template\js\counter.js" />
+    <Content Include="template\js\custom.js" />
+    <Content Include="template\js\flatpickr.min.js" />
+    <Content Include="template\js\glightbox.min.js" />
+    <Content Include="template\js\index.html" />
+    <Content Include="template\js\navbar.js" />
+    <Content Include="template\js\tiny-slider.js" />
+    <Content Include="template\scss\bootstrap\index.html" />
+    <Content Include="template\scss\components\index.html" />
+    <Content Include="template\scss\index.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Pdf_to_word.cshtml" />
+    <Content Include="Scripts\jquery-3.6.4.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.4.min.map" />
+    <Content Include="Views\Home\word_to_pdf.cshtml" />
+    <Content Include="Views\Home\pdf_to_png.cshtml" />
+    <Content Include="template\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="template\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="template\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="template\fonts\flaticon\font\Flaticon.woff2" />
+    <Content Include="template\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="template\fonts\flaticon\license\license.pdf" />
+    <Content Include="template\fonts\icomoon\fonts\icomoon.eot" />
+    <Content Include="template\fonts\icomoon\fonts\icomoon.ttf" />
+    <Content Include="template\fonts\icomoon\fonts\icomoon.woff" />
+    <Content Include="template\fonts\icomoon\selection.json" />
+    <Content Include="template\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="template\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="template\scss\bootstrap\bootstrap-utilities.scss" />
+    <Content Include="template\scss\bootstrap\bootstrap.scss" />
+    <Content Include="template\scss\bootstrap\forms\_floating-labels.scss" />
+    <Content Include="template\scss\bootstrap\forms\_form-check.scss" />
+    <Content Include="template\scss\bootstrap\forms\_form-control.scss" />
+    <Content Include="template\scss\bootstrap\forms\_form-range.scss" />
+    <Content Include="template\scss\bootstrap\forms\_form-select.scss" />
+    <Content Include="template\scss\bootstrap\forms\_form-text.scss" />
+    <Content Include="template\scss\bootstrap\forms\_input-group.scss" />
+    <Content Include="template\scss\bootstrap\forms\_labels.scss" />
+    <Content Include="template\scss\bootstrap\forms\_validation.scss" />
+    <Content Include="template\scss\bootstrap\helpers\_clearfix.scss" />
+    <Content Include="template\scss\bootstrap\helpers\_colored-links.scss" />
+    <Content Include="template\scss\bootstrap\helpers\_position.scss" />
+    <Content Include="template\scss\bootstrap\helpers\_ratio.scss" />
+    <Content Include="template\scss\bootstrap\helpers\_stacks.scss" />
+    <Content Include="template\scss\bootstrap\helpers\_stretched-link.scss" />
+    <Content Include="template\scss\bootstrap\helpers\_text-truncation.scss" />
+    <Content Include="template\scss\bootstrap\helpers\_visually-hidden.scss" />
+    <Content Include="template\scss\bootstrap\helpers\_vr.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_backdrop.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_color-scheme.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_container.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_table-variants.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_utilities.scss" />
+    <Content Include="template\scss\bootstrap\mixins\_visually-hidden.scss" />
+    <Content Include="template\scss\bootstrap\utilities\_api.scss" />
+    <Content Include="template\scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="template\scss\bootstrap\_accordion.scss" />
+    <Content Include="template\scss\bootstrap\_alert.scss" />
+    <Content Include="template\scss\bootstrap\_badge.scss" />
+    <Content Include="template\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="template\scss\bootstrap\_button-group.scss" />
+    <Content Include="template\scss\bootstrap\_buttons.scss" />
+    <Content Include="template\scss\bootstrap\_card.scss" />
+    <Content Include="template\scss\bootstrap\_carousel.scss" />
+    <Content Include="template\scss\bootstrap\_close.scss" />
+    <Content Include="template\scss\bootstrap\_containers.scss" />
+    <Content Include="template\scss\bootstrap\_dropdown.scss" />
+    <Content Include="template\scss\bootstrap\_forms.scss" />
+    <Content Include="template\scss\bootstrap\_functions.scss" />
+    <Content Include="template\scss\bootstrap\_grid.scss" />
+    <Content Include="template\scss\bootstrap\_helpers.scss" />
+    <Content Include="template\scss\bootstrap\_images.scss" />
+    <Content Include="template\scss\bootstrap\_list-group.scss" />
+    <Content Include="template\scss\bootstrap\_mixins.scss" />
+    <Content Include="template\scss\bootstrap\_modal.scss" />
+    <Content Include="template\scss\bootstrap\_nav.scss" />
+    <Content Include="template\scss\bootstrap\_navbar.scss" />
+    <Content Include="template\scss\bootstrap\_offcanvas.scss" />
+    <Content Include="template\scss\bootstrap\_pagination.scss" />
+    <Content Include="template\scss\bootstrap\_placeholders.scss" />
+    <Content Include="template\scss\bootstrap\_popover.scss" />
+    <Content Include="template\scss\bootstrap\_progress.scss" />
+    <Content Include="template\scss\bootstrap\_reboot.scss" />
+    <Content Include="template\scss\bootstrap\_root.scss" />
+    <Content Include="template\scss\bootstrap\_spinners.scss" />
+    <Content Include="template\scss\bootstrap\_tables.scss" />
+    <Content Include="template\scss\bootstrap\_toasts.scss" />
+    <Content Include="template\scss\bootstrap\_tooltip.scss" />
+    <Content Include="template\scss\bootstrap\_transitions.scss" />
+    <Content Include="template\scss\bootstrap\_type.scss" />
+    <Content Include="template\scss\bootstrap\_utilities.scss" />
+    <Content Include="template\scss\bootstrap\_variables.scss" />
+    <Content Include="template\scss\components\_site-base.scss" />
+    <Content Include="template\scss\components\_site-blocks.scss" />
+    <Content Include="template\scss\components\_site-footer.scss" />
+    <Content Include="template\scss\components\_site-navbar.scss" />
+    <Content Include="template\scss\style.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51531</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44391/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets'))" />
+    <Error Condition="!Exists('..\packages\HarfBuzzSharp.NativeAssets.macOS.2.8.2.2\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\HarfBuzzSharp.NativeAssets.macOS.2.8.2.2\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets'))" />
+    <Error Condition="!Exists('..\packages\HarfBuzzSharp.NativeAssets.Win32.2.8.2.2\build\net462\HarfBuzzSharp.NativeAssets.Win32.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\HarfBuzzSharp.NativeAssets.Win32.2.8.2.2\build\net462\HarfBuzzSharp.NativeAssets.Win32.targets'))" />
+    <Error Condition="!Exists('..\packages\SkiaSharp.NativeAssets.macOS.2.88.2\build\net462\SkiaSharp.NativeAssets.macOS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.NativeAssets.macOS.2.88.2\build\net462\SkiaSharp.NativeAssets.macOS.targets'))" />
+    <Error Condition="!Exists('..\packages\SkiaSharp.NativeAssets.Win32.2.88.2\build\net462\SkiaSharp.NativeAssets.Win32.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.NativeAssets.Win32.2.88.2\build\net462\SkiaSharp.NativeAssets.Win32.targets'))" />
+    <Error Condition="!Exists('..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PdfiumViewer.Native.x86.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86.v8-xfa.props'))" />
+    <Error Condition="!Exists('..\packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.v8-xfa.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PdfiumViewer.Native.x86_64.v8-xfa.2018.4.8.256\build\PdfiumViewer.Native.x86_64.v8-xfa.props'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\HarfBuzzSharp.NativeAssets.macOS.2.8.2.2\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\HarfBuzzSharp.NativeAssets.macOS.2.8.2.2\build\net462\HarfBuzzSharp.NativeAssets.macOS.targets')" />
+  <Import Project="..\packages\HarfBuzzSharp.NativeAssets.Win32.2.8.2.2\build\net462\HarfBuzzSharp.NativeAssets.Win32.targets" Condition="Exists('..\packages\HarfBuzzSharp.NativeAssets.Win32.2.8.2.2\build\net462\HarfBuzzSharp.NativeAssets.Win32.targets')" />
+  <Import Project="..\packages\SkiaSharp.NativeAssets.macOS.2.88.2\build\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.macOS.2.88.2\build\net462\SkiaSharp.NativeAssets.macOS.targets')" />
+  <Import Project="..\packages\SkiaSharp.NativeAssets.Win32.2.88.2\build\net462\SkiaSharp.NativeAssets.Win32.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.Win32.2.88.2\build\net462\SkiaSharp.NativeAssets.Win32.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
